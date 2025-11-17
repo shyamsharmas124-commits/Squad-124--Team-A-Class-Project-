@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Kalvium</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="students.html">My Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<section id="home" class="hero">
+    <div class="hero-content">
+        <h1>Hi, we're <span class="highlight">from squad 124. Team A</span></h1>
+        <p class="tagline">Web Developer & Designer</p>
+        <a href="#contact" class="cta-button">Get In Touch</a>
+    </div>
+</section>
+   
+
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>We are passionate web developer, currently studying at Kalvium. We are 1st year students and we hope to do our best in this course.</p>
+                <div class="skills">
+                    <h3>Skills</h3>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>Responsive Design</li>
+                        <li>UI/UX Design</li>
+                        <li>Git & Version Control</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image" style="background-color: #ff0000;"></div>
+                <h3>Project 1</h3>
+                <p>A brief description of the project and what technologies were used.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-color: #ff0000;"></div>
+                <h3>Project 2</h3>
+                <p>A brief description of the project and what technologies were used.</p>
+            </div>
+            <div class="project-card">
+                <div class="project-image" style="background-color: #ff0000;"></div>
+                <h3>Project 3</h3>
+                <p>A brief description of the project and what technologies were used.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> email@example.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Class Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+
+
+
+        // Initialize animations when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate the hero content
+            anime.timeline({loop: false})
+                .add({
+                    targets: '.hero h1',
+                    opacity: [0, 1],
+                    translateY: [50, 0],
+                    duration: 1000,
+                    easing: 'easeOutExpo'
+                })
+                .add({
+                    targets: '.tagline',
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 800,
+                    easing: 'easeOutExpo'
+                }, '-=600')
+                .add({
+                    targets: '.cta-button',
+                    opacity: [0, 1],
+                    scale: [0.8, 1],
+                    duration: 800,
+                    easing: 'easeOutElastic',
+                    elasticity: 500
+                }, '-=400');
+
+            // Animate project cards on scroll
+            const projectCards = document.querySelectorAll('.project-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            translateY: [100, 0],
+                            opacity: [0, 1],
+                            duration: 800,
+                            easing: 'easeOutCubic',
+                            delay: anime.stagger(200, {start: 100})
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            projectCards.forEach(card => observer.observe(card));
+
+            // Animate skills on scroll
+            const skills = document.querySelectorAll('.skills li');
+            const skillsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            scale: [0.8, 1],
+                            opacity: [0, 1],
+                            duration: 800,
+                            easing: 'easeOutElastic',
+                            delay: anime.stagger(100, {start: 100})
+                        });
+                        skillsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            skills.forEach(skill => skillsObserver.observe(skill));
+
+            // Floating animation for project cards on hover
+            projectCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    anime({
+                        targets: this,
+                        translateY: -10,
+                        boxShadow: '0 15px 30px rgba(0,0,0,0.15)',
+                        scale: 1.02,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    anime({
+                        targets: this,
+                        translateY: 0,
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        scale: 1,
+                        duration: 300,
+                        easing: 'easeOutQuad'
+                    });
+                });
+            });
+
+            // Animate social icons
+            const socialIcons = document.querySelectorAll('.social-links a');
+            socialIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    anime({
+                        targets: this,
+                        rotate: '1turn',
+                        scale: [1, 1.3],
+                        duration: 800,
+                        easing: 'easeOutElastic',
+                        elasticity: 500
+                    });
+                });
+            });
+        });
+    </script>
+   
+<!-- Replace the motion script with GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+<script src="animation.js"></script>
+
+
+</body>
+</html>
