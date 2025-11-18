@@ -1,10 +1,10 @@
 /* Reset and Base Styles */
 *{margin:0;padding:0;box-sizing:border-box}
 
-:root{--primary:#059669;--secondary:#0891b2;--accent:#dc2626;--text-dark:#1f2937;--text-light:#64748b;--bg-light:#f0fdf4;--bg-white:#ffffff;--border:#d1fae5;--shadow-sm:0 1px 2px rgba(0,0,0,.05);--shadow-md:0 4px 6px rgba(0,0,0,.07);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--transition:all .3s ease}
+:root{--primary-color:#2563eb;--secondary:#7c3aed;--accent:#dc2626;--text-dark:#1e293b;--text-light:#64748b;--bg-light:#f8fafc;--bg-white:#ffffff;--border:#e2e8f0;--shadow-sm:0 1px 2px rgba(0,0,0,.05);--shadow-md:0 4px 6px rgba(0,0,0,.07);--shadow-lg:0 10px 15px rgba(0,0,0,.1);--shadow-xl:0 20px 25px rgba(0,0,0,.1);--gradient-light:linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);--gradient-dark:linear-gradient(135deg, #1e40af 0%, #6d28d9 100%);--gradient-light-alt:linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);--gradient-dark-alt:linear-gradient(135deg, #0891b2 0%, #1e40af 100%);--transition:all .3s ease}
 
 /* Dark mode variables */
-[data-theme="dark"]{--primary:#10b981;--secondary:#06b6d4;--accent:#ef4444;--text-dark:#f0fdf4;--text-light:#a7f3d0;--bg-light:#064e3b;--bg-white:#022c22;--border:#047857;--shadow-sm:0 1px 2px rgba(0,0,0,.3);--shadow-md:0 4px 6px rgba(0,0,0,.4);--shadow-lg:0 10px 15px rgba(0,0,0,.5);--shadow-xl:0 20px 25px rgba(0,0,0,.6)}
+[data-theme="dark"]{--primary-color:#3b82f6;--secondary:#8b5cf6;--accent:#ef4444;--text-dark:#f1f5f9;--text-light:#cbd5e1;--bg-light:#0f172a;--bg-white:#1e293b;--border:#334155;--shadow-sm:0 1px 2px rgba(0,0,0,.3);--shadow-md:0 4px 6px rgba(0,0,0,.4);--shadow-lg:0 10px 15px rgba(0,0,0,.5);--shadow-xl:0 20px 25px rgba(0,0,0,.6);--gradient-light:linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);--gradient-dark:linear-gradient(135deg, #1e40af 0%, #6d28d9 100%);--gradient-light-alt:linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);--gradient-dark-alt:linear-gradient(135deg, #0891b2 0%, #1e40af 100%)}
 
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:var(--text-dark);background:var(--bg-light);overflow-x:hidden}
 
@@ -15,17 +15,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 
 .nav-container{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;height:70px}
 
-.nav-logo h2{color:var(--primary);font-weight:700;font-size:1.8rem}
+.nav-logo h2{color:var(--primary-color);font-weight:700;font-size:1.8rem}
 
 .nav-menu{display:flex;list-style:none;gap:2rem}
 
 .nav-link{text-decoration:none;color:var(--text-dark);font-weight:500;position:relative;transition:var(--transition)}
 
-.nav-link::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s ease}
+.nav-link::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:var(--primary-color);transition:width .3s ease}
 
 .nav-link:hover::after,.nav-link.active::after{width:100%}
 
-.nav-link.active{color:var(--primary)}
+.nav-link.active{color:var(--primary-color)}
 
 .hamburger{display:none;flex-direction:column;cursor:pointer}
 
@@ -35,7 +35,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 .theme-toggle{background:none;border:2px solid var(--border);border-radius:50px;padding:8px 16px;cursor:pointer;display:flex;align-items:center;gap:8px;transition:var(--transition);color:var(--text-dark);font-size:.9rem}
 
 /* Hero Section */
-.hero{margin-top:70px;min-height:calc(100vh - 70px);display:flex;align-items:center;background:var(--bg-white);color:var(--text-dark);position:relative}
+.hero{margin-top:70px;min-height:calc(100vh - 70px);display:flex;align-items:center;background:var(--gradient-light);color:var(--text-dark);position:relative}
+
+[data-theme="dark"] .hero{background:var(--gradient-dark)}
 .hero-container{
     max-width:1200px;
     margin: 0 auto;
@@ -58,21 +60,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 
 .hero-card{background:var(--bg-white);padding:2rem;border-radius:15px;box-shadow:var(--shadow-sm);border:1px solid var(--border);transition:var(--transition)}
 
-.hero-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--primary)}
+.hero-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--primary-color)}
 
-.hero-card h3{color:var(--primary);margin-bottom:1rem}
+.hero-card h3{color:var(--primary-color);margin-bottom:1rem}
 
 .hero-card p{color:var(--text-light);line-height:1.6}
 
 .btn{padding:12px 30px;border:none;border-radius:50px;font-weight:600;text-decoration:none;display:inline-block;cursor:pointer;transition:var(--transition);font-size:1rem}
 
-.btn-primary{background:var(--primary);color:#fff;box-shadow:var(--shadow-md)}
+.btn-primary{background:var(--primary-color);color:#fff;box-shadow:var(--shadow-md)}
 
 .btn-primary:hover{background:var(--secondary);transform:translateY(-2px);box-shadow:var(--shadow-lg);transition:var(--transition)}
 
-.btn-secondary{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn-secondary{background:transparent;color:var(--primary-color);border:2px solid var(--primary-color)}
 
-.btn-secondary:hover{background:var(--primary);color:#fff}
+.btn-secondary:hover{background:var(--primary-color);color:#fff}
 
 .hero-image{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 
@@ -89,13 +91,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 .hero-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-md);
-    border-color: var(--primary);
+    border-color: var(--primary-color);
 }
 
 .hero-card i {
     font-size: 2rem;
     margin-bottom: 1rem;
-    color: var(--primary);
+    color: var(--primary-color);
 }
 
 .hero-card h3 {
@@ -110,7 +112,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 }
 
 /* Page Hero */
-.page-hero{margin-top:70px;padding:60px 0;background:var(--primary);color:#fff;text-align:center}
+.page-hero{margin-top:70px;padding:60px 0;background:var(--gradient-light);color:#fff;text-align:center}
+
+[data-theme="dark"] .page-hero{background:var(--gradient-dark)}
 
 .page-hero h1{font-size:3rem;margin-bottom:1rem}
 
@@ -125,9 +129,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 
 .feature-card{background:var(--bg-white);border:1px solid var(--border);border-radius:12px;padding:2rem;text-align:center;transition:var(--transition);box-shadow:var(--shadow-sm)}
 
-.feature-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--primary);transition:var(--transition)}
+.feature-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-md);border-color:var(--primary-color);transition:var(--transition)}
 
-.feature-card i{font-size:3rem;color:var(--primary);margin-bottom:1rem}
+.feature-card i{font-size:3rem;color:var(--primary-color);margin-bottom:1rem}
 
 .feature-card h3 {
     font-size: 1.3rem;
@@ -143,12 +147,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 .team-info {
     text-align: center;
     padding: 2rem;
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    background: var(--gradient-light);
     border-radius: 15px;
     color: white;
     box-shadow: var(--shadow-lg);
     transition: var(--transition);
 }
+
+[data-theme="dark"] .team-info{background:var(--gradient-dark)}
 
 .team-info:hover {
     transform: translateY(-5px);
@@ -193,7 +199,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
 }
 
 .profile-card:hover {
@@ -262,17 +268,215 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
     font-weight: 500;
 }
 
+/* Projects Page */
+.projects-grid {
+    padding: 80px 0;
+    background: var(--bg-white);
+}
+
+.projects-grid .project-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-dark);
+}
+
+.projects-grid .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+    border-color: var(--primary-color);
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .projects-grid .project-card{
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .projects-grid .project-card:hover{
+    background: rgba(30, 41, 59, 0.7);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Students Page */
+.students-grid {
+    padding: 80px 0;
+    background: var(--bg-white);
+}
+
+.students-grid .profile-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-dark);
+}
+
+.students-grid .profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+    border-color: var(--primary-color);
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .students-grid .profile-card{
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .students-grid .profile-card:hover{
+    background: rgba(30, 41, 59, 0.7);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Mentors Page */
+.mentors-grid {
+    padding: 80px 0;
+    background: var(--bg-white);
+}
+
+.mentors-grid .profile-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-dark);
+}
+
+.mentors-grid .profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
+    border-color: var(--primary-color);
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .mentors-grid .profile-card{
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .mentors-grid .profile-card:hover{
+    background: rgba(30, 41, 59, 0.7);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.profile-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    border: 1px solid var(--border);
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.profile-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.profile-card:hover .profile-image img {
+    transform: scale(1.05);
+    transition: var(--transition);
+}
+
+.profile-content {
+    padding: 2rem;
+}
+
+.profile-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.profile-title {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.profile-bio {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.profile-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.skill-tag {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
 .social-icons {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 .social-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -285,19 +489,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
     background: var(--primary-color);
     color: white;
     transform: translateY(-3px);
-    transition: var(--transition);
-}
-
-.social.btn-secondary {
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.social.btn-secondary:hover {
-    background: var(--primary-color);
-    color: white;
-    transform: translateY(-2px);
     transition: var(--transition);
 }
 
@@ -315,7 +506,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
 }
 
 .project-card:hover {
@@ -343,12 +534,17 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(59, 130, 246, 0.8);
+    backdrop-filter: blur(5px);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: var(--transition);
+}
+
+[data-theme="dark"] .project-overlay{
+    background: rgba(30, 64, 175, 0.8);
 }
 
 .project-card:hover .project-overlay {
@@ -364,11 +560,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-dark);
+    color: var(--primary-color);
     text-decoration: none;
     transition: var(--transition);
     transform: translateY(20px);
@@ -406,13 +604,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 }
 
 .tech-tag {
-    background: var(--bg-light);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: var(--text-dark);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 500;
-    border: 1px solid var(--border-color);
 }
 
 /* About Page */
@@ -465,12 +664,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 }
 
 .profile-card {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--gradient-light);
     color: white;
     text-align: center;
     padding: 3rem 2rem;
     border-radius: 20px;
     box-shadow: var(--shadow-xl);
+}
+
+[data-theme="dark"] .profile-card{
+    background: rgba(30, 41, 59, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-dark);
+}
+
+[data-theme="dark"] .profile-card:hover{
+    background: rgba(30, 41, 59, 0.7);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .profile-image {
@@ -519,7 +730,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 }
 
 .skill-bar {
-    background: var(--border-color);
+    background: var(--border);
     height: 8px;
     border-radius: 10px;
     overflow: hidden;
@@ -527,20 +738,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 
 .skill-progress {
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: var(--gradient-light);
     border-radius: 10px;
     width: 0;
     transition: width 2s ease;
 }
 
+[data-theme="dark"] .skill-progress{background:var(--gradient-dark)}
+
 
 /* Contact Page */
 .contact-hero {
     padding: 80px 0;
-    background: var(--primary-color);
+    background: var(--gradient-light);
     color: white;
     text-align: center;
 }
+
+[data-theme="dark"] .contact-hero{background:var(--gradient-dark)}
 
 .contact-hero h1 {
     font-size: 3rem;
@@ -642,7 +857,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 .form-group textarea {
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     border-radius: 10px;
     font-family: inherit;
     font-size: 1rem;
@@ -677,11 +892,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
 }
 
 .filter-btn {
-    background: transparent;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     color: var(--text-dark);
-    border: 2px solid var(--border-color);
-    padding: 10px 20px;
-    border-radius: 50px;
+    border-radius: 25px;
     cursor: pointer;
     transition: var(--transition);
     font-weight: 500;
@@ -692,7 +908,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica N
     background: var(--primary-color);
     color: white;
     border-color: var(--primary-color);
-    transition: var(--transition);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
 }
 
 /* Process Section */
