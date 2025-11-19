@@ -477,3 +477,82 @@ window.addEventListener('scroll', utils.throttle(() => {
 window.addEventListener('resize', utils.debounce(() => {
     // Handle responsive adjustments
 }, 250));
+
+// Animate learning cards when they enter the viewport
+document.addEventListener('DOMContentLoaded', () => {
+    const learningItems = document.querySelectorAll('.learning-item');
+    if (!learningItems || learningItems.length === 0) return;
+
+    // Prepare initial state via CSS (keeps layout snappy)
+    learningItems.forEach(item => {
+        item.style.opacity = 0;
+        item.style.transform = 'translateY(20px) scale(0.98)';
+    });
+
+    const learningObserver = new IntersectionObserver((entries, obs) => {
+        const toAnimate = [];
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                toAnimate.push(entry.target);
+                obs.unobserve(entry.target);
+            }
+        });
+
+        if (toAnimate.length) {
+            anime.timeline({})
+                .add({
+                    targets: toAnimate,
+                    translateY: [20, 0],
+                    opacity: [0, 1],
+                    scale: [0.98, 1],
+                    easing: 'easeOutExpo',
+                    duration: 700,
+                    delay: anime.stagger(120)
+                });
+        }
+    }, { threshold: 0.12 });
+
+    learningItems.forEach(item => learningObserver.observe(item));
+});
+
+// Projects search/filter
+document.addEventListener('DOMContentLoaded', () => {
+    const search = document.getElementById('projectSearch');
+    if (!search) return;
+
+    const cards = Array.from(document.querySelectorAll('.project-card'));
+
+    function normalize(text) {
+        return (text || '').toString().trim().toLowerCase();
+    }
+
+    function filterProjects(query) {
+        const q = normalize(query);
+        cards.forEach(card => {
+            const titleEl = card.querySelector('.project-content h3');
+            const techEls = Array.from(card.querySelectorAll('.tech-tag'));
+            const title = normalize(titleEl ? titleEl.textContent : '');
+            const techs = techEls.map(t => normalize(t.textContent)).join(' ');
+            const hay = (title + ' ' + techs);
+
+            if (q === '' || hay.indexOf(q) !== -1) {
+                if (card.style.display === 'none' || window.getComputedStyle(card).display === 'none') {
+                    card.style.display = '';
+                    anime({ targets: card, opacity: [0,1], translateY: [8,0], duration: 350, easing: 'easeOutExpo' });
+                }
+            } else {
+                // animate out then hide
+                anime({ targets: card, opacity: [1,0], translateY: [0,-8], duration: 200, easing: 'easeInExpo', complete: () => { card.style.display = 'none'; card.style.opacity = 1; } });
+            }
+        });
+    }
+
+    // initial state
+    filterProjects('');
+
+    let debounceTimer;
+    search.addEventListener('input', (e) => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => filterProjects(e.target.value), 150);
+    });
+});

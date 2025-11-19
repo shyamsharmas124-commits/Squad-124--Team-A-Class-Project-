@@ -1,0 +1,12 @@
+# Ignore node modules and temp/backup files
+node_modules/
+styles_backup.css
+styles_temp.css
+
+# Ignore archive folder (local only)
+/archive/
+
+# Optional: ignore large unused images (uncomment to enable)
+# images/0eafbc02750cea8dc18439df8b29124b.png
+# images/bnhkjguikkjg.jpg
+# images/istockphoto-899173488-612x612.jpg

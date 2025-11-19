@@ -364,6 +364,139 @@ body {
     gap: 2rem;
 }
 
+/* Learning section card styles */
+.learning {
+    padding: 60px 0;
+    background: transparent;
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.learning-item {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.learning-item h3 {
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.learning-item ul {
+    margin-left: 1rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.learning-item:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.learning .note {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .learning-item {
+    background: var(--bg-white);
+    border: 1px solid var(--border);
+}
+
+/* Projects compact layout + search */
+.projects-controls {
+    padding: 20px 0 8px;
+}
+.projects-controls .controls-row {
+    display: flex;
+    justify-content: center;
+}
+.search-input {
+    width: 100%;
+    max-width: 520px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    font-size: 0.95rem;
+    outline: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.search-input:focus {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+}
+
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    align-items: start;
+}
+
+.project-card {
+    padding: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-image img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.project-content .project-description {
+    flex: 1 1 auto;
+}
+
+.project-content h3 {
+    font-size: 1.05rem;
+    margin-top: 0.6rem;
+}
+
+.project-description {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0.4rem 0 0.6rem;
+}
+
+.project-tech .tech-tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    margin-right: 0.35rem;
+    margin-bottom: 0.35rem;
+}
+
+@media (max-width: 700px) {
+    .project-image img { height: 120px; }
+    .project-cards { gap: 0.75rem; }
+}
+
 .feature-card {
     background: var(--bg-white);
     border: 1px solid var(--border);
@@ -473,11 +606,29 @@ body {
     border-radius: 8px;
 }
 
+.profile-image {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    display: block;
+    /* enforce square crop for consistent appearance */
+    aspect-ratio: 1 / 1;
+    max-height: 300px;
+    min-height: 140px;
+}
+
 .profile-image img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: var(--transition);
+}
+
+@media (max-width: 700px) {
+    .profile-image { min-height: 120px; max-height: 220px; }
 }
 
 .profile-card:hover .profile-image img {
