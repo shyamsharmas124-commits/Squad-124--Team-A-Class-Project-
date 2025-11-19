@@ -10,23 +10,22 @@
         /* Inline page styles to ensure about-hero background works even without external CSS */
         .about-hero{
             position: relative;
-            background-image: linear-gradient(rgba(3,6,23,0.55), rgba(3,6,23,0.55)), url('images/IMG_20251109_131134992 (1).jpg');
+            background-image: linear-gradient(rgba(3,6,23,0.55), rgba(3,6,23,0.55)), url('images/dfijsghidfughkjdfs.jpg');
             background-size: cover;
             background-position: center center;
             color: #fff;
             padding: 80px 0;
             border-radius: 8px;
         }
-        /* Fallback: try the WhatsApp image if the first isn't available */
-        @supports (background-image: url("images/WhatsApp Image 2025-11-19 at 17.39.59_125e8d02.jpg")) {
+        @supports (background-image: url("images/dfijsghidfughkjdfs.jpg")) {
             .about-hero{
-                background-image: linear-gradient(rgba(3,6,23,0.55), rgba(3,6,23,0.55)), url('images/IMG_20251109_131134992 (1).jpg');
+                background-image: linear-gradient(rgba(3,6,23,0.55), rgba(3,6,23,0.55)), url('images/dfijsghidfughkjdfs.jpg');
             }
         }
         .about-hero::before{ content: ""; position: absolute; inset: 0; }
         .about-hero .container{ position: relative; z-index: 2; }
         .about-hero h1, .about-hero p, .about-hero .detail-item h3 { color: #f1f5f9 !important; }
-        /* Ensure the profile card on the right is readable on top of the background */
+        
         .about-image .profile-card{ background: rgba(0,0,0,0.45); color: #fff; border-radius: 12px; padding: 1.5rem; }
         .about-image .profile-card .profile-image{ background: rgba(255,255,255,0.06); }
         @media (max-width: 768px){ .about-hero { padding: 40px 0; } }
