@@ -192,6 +192,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Animate 'Follow Us' icons on Contact page when they enter viewport
+    const followSection = document.querySelector('.social-section.follow');
+    if (followSection) {
+        const followObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const icons = entry.target.querySelectorAll('.social-icon');
+                    anime({
+                        targets: icons,
+                        translateY: [20, 0],
+                        opacity: [0, 1],
+                        scale: [0.85, 1],
+                        duration: 700,
+                        delay: anime.stagger(120),
+                        easing: 'easeOutBack'
+                    });
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        followObserver.observe(followSection);
+    }
+
     // Card hover animations
     document.querySelectorAll('.profile-card, .project-card, .feature-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
