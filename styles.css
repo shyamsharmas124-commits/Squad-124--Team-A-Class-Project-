@@ -1562,6 +1562,37 @@ body {
     opacity: 0.8;
 }
 
+/* About page hero and card styles migrated from inline CSS */
+.about-hero{
+    position: relative;
+    background-image: linear-gradient(rgba(3,6,23,0.55), rgba(3,6,23,0.55)), url('images/rosjthuisdrfgosdfoigisdfg.jpg');
+    background-size: cover;
+    background-position: -120px center;
+    color: #fff;
+    padding: 80px 0;
+    border-radius: 8px;
+}
+@supports (background-image: url("images/rosjthuisdrfgosdfoigisdfg.jpg")) {
+    .about-hero{
+        background-image: linear-gradient(rgba(3,6,23,0.55), rgba(3,6,23,0.55)), url('images/rosjthuisdrfgosdfoigisdfg.jpg');
+        background-position: -120px center;
+    }
+}
+.about-hero::before{ content: ""; position: absolute; inset: 0; }
+.about-hero .container{ position: relative; z-index: 2; }
+.about-hero h1, .about-hero p, .about-hero .detail-item h3 { color: #f1f5f9 !important; }
+
+.about-image .profile-card{ background: rgba(0,0,0,0.45); color: #fff; border-radius: 12px; padding: 1.5rem; margin-left: auto; margin-right: 0; max-width: 340px; }
+.about-image .profile-card .profile-image{ background: rgba(255,255,255,0.06); }
+@media (max-width: 768px){ .about-hero { padding: 40px 0; } }
+
+/* Index page: hero background set to user-provided image */
+.hero{
+    background-image: linear-gradient(rgba(3,6,23,0.45), rgba(3,6,23,0.45)), url('images/dfijsghidfughkjdfs.jpg');
+    background-size: cover;
+    background-position: center center;
+    color: #fff;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
