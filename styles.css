@@ -3,49 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
 
-:root {
-    --primary-color: #2563eb;
-    --secondary: #7c3aed;
-    --accent: #dc2626;
-    --text-dark: #1e293b;
-    --text-light: #64748b;
-    --bg-light: #f8fafc;
-    --bg-white: #ffffff;
-    --border: #e2e8f0;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
-    --gradient-light: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    --gradient-dark: linear-gradient(135deg, #1e40af 0%, #6d28d9 100%);
-    --gradient-light-alt: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-    --gradient-dark-alt: linear-gradient(135deg, #0891b2 0%, #1e40af 100%);
-    --transition: all 0.3s ease;
-}
-
-/* Dark mode variables */
-[data-theme="dark"] {
-    --primary-color: #3b82f6;
-    --secondary: #8b5cf6;
-    --accent: #ef4444;
-    --text-dark: #f1f5f9;
-    --text-light: #cbd5e1;
-    --bg-light: #0f172a;
-    --bg-white: #1e293b;
-    --border: #334155;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
-    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.6);
-    --gradient-light: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-    --gradient-dark: linear-gradient(135deg, #1e40af 0%, #6d28d9 100%);
-    --gradient-light-alt: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-    --gradient-dark-alt: linear-gradient(135deg, #0891b2 0%, #1e40af 100%);
-}
-
-body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
@@ -222,13 +180,6 @@ body {
     gap: 1rem;
     flex-wrap: wrap;
 }
-
-.hero-cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-}
-
 .hero-card {
     background: var(--bg-white);
     padding: 2rem;
@@ -541,48 +492,6 @@ body {
     line-height: 1.6;
 }
 
-.team-info {
-    text-align: center;
-    padding: 2rem;
-    background: var(--gradient-light);
-    border-radius: 15px;
-    color: white;
-    box-shadow: var(--shadow-lg);
-    transition: var(--transition);
-}
-
-[data-theme="dark"] .team-info {
-    background: var(--gradient-dark);
-}
-
-.team-info:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-    transition: var(--transition);
-}
-
-.team-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-}
-
-.team-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: white;
-}
-
-.team-info p {
-    opacity: 0.9;
-    margin: 0;
-}
 
 /* Profile Cards */
 .profile-cards {
@@ -1551,18 +1460,6 @@ body {
 /* FAQ Section */
 
 /* Filter Buttons */
-.projects-filter {
-    padding: 40px 0;
-    background: var(--bg-white);
-}
-
-.filter-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
 .filter-btn {
     padding: 0.8rem 1.5rem;
     border: 2px solid rgba(255, 255, 255, 0.2);
@@ -1735,18 +1632,8 @@ body {
         grid-template-columns: 1fr;
     }
 
-    .skills-grid,
-    .process-steps,
-    .stats-grid,
-    .achievements-grid {
+    .skills-grid {
         grid-template-columns: 1fr;
-    }
-
-    .filter-buttons {
-        justify-content: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
     }
 
     .filter-btn {
