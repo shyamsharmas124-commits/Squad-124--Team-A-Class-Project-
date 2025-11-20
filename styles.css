@@ -156,8 +156,13 @@ body {
     min-height: calc(100vh - 70px);
     display: flex;
     align-items: center;
-    background: linear-gradient(135deg, rgba(59,130,246,0.25) 0%, rgba(139,92,246,0.25) 100%);
-    color: var(--text-dark);
+    /* Layer gradient over user-provided image and blend for a unified look */
+    background-image: linear-gradient(135deg, rgba(59,130,246,0.45) 0%, rgba(139,92,246,0.45) 100%), url('images/dfijsghidfughkjdfs.jpg');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    color: #fff;
     position: relative;
     border-radius: 32px;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12);
@@ -168,7 +173,12 @@ body {
 }
 
 [data-theme="dark"] .hero {
-    background: linear-gradient(135deg, rgba(30,64,175,0.25) 0%, rgba(109,40,217,0.25) 100%);
+    /* Dark theme: keep the same image but use a darker gradient overlay */
+    background-image: linear-gradient(135deg, rgba(30,64,175,0.55) 0%, rgba(109,40,217,0.55) 100%), url('images/dfijsghidfughkjdfs.jpg');
+    background-size: cover;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
     color: var(--text-dark);
     border-radius: 32px;
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.18);
@@ -1585,14 +1595,6 @@ body {
 .about-image .profile-card{ background: rgba(0,0,0,0.45); color: #fff; border-radius: 12px; padding: 1.5rem; margin-left: auto; margin-right: 0; max-width: 340px; }
 .about-image .profile-card .profile-image{ background: rgba(255,255,255,0.06); }
 @media (max-width: 768px){ .about-hero { padding: 40px 0; } }
-
-/* Index page: hero background set to user-provided image */
-.hero{
-    background-image: linear-gradient(rgba(3,6,23,0.45), rgba(3,6,23,0.45)), url('images/dfijsghidfughkjdfs.jpg');
-    background-size: cover;
-    background-position: center center;
-    color: #fff;
-}
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
