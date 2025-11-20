@@ -743,22 +743,88 @@ body {
 }
 
 .students-grid .profile-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
-    transition: var(--transition);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    backdrop-filter: blur(8px) saturate(110%);
+    border-radius: 16px;
+    overflow: visible;
+    box-shadow: 0 10px 30px rgba(2,6,23,0.25);
+    transition: transform 0.28s ease, box-shadow 0.28s ease;
+    border: 1px solid rgba(255,255,255,0.06);
     color: var(--text-dark);
+    padding: 1.25rem 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .students-grid .profile-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25);
-    border-color: var(--primary-color);
-    transition: var(--transition);
-    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 18px 60px rgba(2,6,23,0.30);
+}
+
+/* Make the avatar more prominent and centered */
+.students-grid .profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: -70px 0 12px; /* pull avatar upwards */
+    border: 6px solid rgba(255,255,255,0.06);
+    box-shadow: 0 8px 30px rgba(2,6,23,0.25);
+    background: rgba(255,255,255,0.02);
+}
+
+.students-grid .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.students-grid .profile-content {
+    padding: 0 1rem 1rem;
+}
+
+.students-grid .profile-content h3 {
+    font-size: 1.15rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.students-grid .profile-title {
+    color: var(--primary-color);
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.students-grid .profile-bio {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.students-grid .profile-skills .skill-tag {
+    background: rgba(255,255,255,0.06);
+    color: var(--text-dark);
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+}
+
+/* Progress bar polish */
+.student-progress .progress-bar {
+    background: rgba(0,0,0,0.06);
+    border-radius: 999px;
+    height: 10px;
+    overflow: hidden;
+    margin-top: 0.6rem;
+}
+.student-progress .progress-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary));
+    transition: width 1.2s ease;
 }
 
 [data-theme="dark"] .students-grid .profile-card{
